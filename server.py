@@ -2,7 +2,7 @@ import socket
 import telnetlib
 
 # Impostazioni del server
-HOST = ''  # Indirizzo IP del server (vuoto per accettare connessioni su tutte le interfacce)
+HOST = '127.0.0.1'  # Indirizzo IP del server (vuoto per accettare connessioni su tutte le interfacce)
 PORT = 23  # Porta su cui il server ascolterà
 
 def handle_client(client):
@@ -22,7 +22,7 @@ def run_server():
         server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         server_socket.bind((HOST, PORT))
         server_socket.listen(5)
-        print(f"Server Telnet in ascolto su {HOST}:{PORT}")
+        print(f"Server Telnet in ascolto su {HOST} : {PORT}")
 
         while True:
             client_socket, addr = server_socket.accept()
